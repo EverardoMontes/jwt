@@ -1,7 +1,11 @@
 // server.js
 const config = require('./config.js');
+const routes = require("./routes/router.js");
 const express = require('express');
 const app = express();
+app.use(express.urlencoded({extended:true}));
+app.use(express.json());
+app.use('/api', routes);
 
 console.log(`NODE_ENV=${config.NODE_ENV}`);
 
